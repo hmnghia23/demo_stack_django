@@ -77,23 +77,23 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': env.APP_POSTGRES_DB,
-#         'USER': env.APP_POSTGRES_USERNAME,
-#         'PASSWORD': env.APP_POSTGRES_PASSWORD,
-#         'HOST': env.APP_POSTGRES_HOST,        
-#         'PORT': env.APP_POSTGRES_PORT,
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env.APP_POSTGRES_DB,
+        'USER': env.APP_POSTGRES_USERNAME,
+        'PASSWORD': env.APP_POSTGRES_PASSWORD,
+        'HOST': env.APP_POSTGRES_HOST,        
+        'PORT': env.APP_POSTGRES_PORT,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -138,5 +138,5 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = f"redis://:{env.APP_REDIS_PASSWORD}@{env.APP_REDIS_HOST}:{env.APP_REDIS_PORT}/{env.APP_REDIS_DEFENDER_DB}"
+CELERY_BROKER_URL = f"amqp://{env.APP_RABBITMQ_USERNAME}:{env.APP_RABBITMQ_PASSWORD}@{env.APP_RABBITMQ_HOST}:{env.APP_RABBITMQ_PORT}//"
 CELERY_RESULT_BACKEND = 'django-db'

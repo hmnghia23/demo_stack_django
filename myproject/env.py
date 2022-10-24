@@ -9,17 +9,16 @@ class AppEnvironment(BaseSettings):
     APP_POSTGRES_HOST: str 
     APP_POSTGRES_PORT: str
 
-    APP_MYSQL_USERNAME: str
-    APP_MYSQL_PASSWORD: str
-    APP_MYSQL_DB: str
-    APP_MYSQL_HOST: str 
-    APP_MYSQL_PORT: str
+    # APP_MYSQL_USERNAME: str
+    # APP_MYSQL_PASSWORD: str
+    # APP_MYSQL_DB: str
+    # APP_MYSQL_HOST: str 
+    # APP_MYSQL_PORT: str
 
-    APP_REDIS_PASSWORD: str
-    APP_REDIS_HOST: str
-    APP_REDIS_PORT: str
-    APP_REDIS_DB: str
-    APP_REDIS_DEFENDER_DB: str
+    APP_RABBITMQ_PASSWORD: str
+    APP_RABBITMQ_HOST: str
+    APP_RABBITMQ_PORT: str
+    APP_RABBITMQ_USERNAME: str
 
     class Config:
         case_sensitive = True
